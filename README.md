@@ -64,6 +64,8 @@ curl -s https://raw.githubusercontent.com/AduriteTBH/no-ai-slop/main/SKILL.md >>
 - **Human English Over Jargon**: Speak to people using the app, not developers debugging an API.
 - **Typography Over Filler**: If the title is clear, kill the descriptive paragraph underneath.
 - **Tactile Motion Over Dead CSS & Neon Glows**: Kill tacky colored halos and instant 0ms cuts. Enforce mechanical switch compression (`active:scale-[0.96]`), subtle kinetic card lift (`hover:-translate-y-0.5`), gliding tab indicators, directional icon momentum, elastic toggle stretch, and organic spring easing curves across all UI interactions.
+- **Contextual Recipes Over Mandatory Checklists**: UI patterns (tabs, switches, disclosures, skeleton loaders) are reference toolkits to use when needed, never a mandate to inject unrequested widgets into layouts.
+- **First-Class SVGs and Icons**: Crisp inline SVGs and vector icons are strongly encouraged for theme toggles, search bars, action buttons, and navigation. The rule bans file extension jargon in text copy, never visual assets.
 
 ---
 

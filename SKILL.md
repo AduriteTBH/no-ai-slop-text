@@ -16,6 +16,19 @@ Other skills handle backend architecture and database schemas. This skill is str
 
 ---
 
+## Core Operational Directives
+
+### 1. Contextual Recipes, Not Mandatory Component Checklists
+The UI components and motion patterns described in this standard (tabs, sliding pills, toggle switches, collapsible disclosures, skeleton shimmers, modals, popovers) are **reference implementations**.
+- **Never force unrequested UI widgets**: Do not clutter a layout by randomly cramming in tabs, toggles, accordions, or complex controls simply because they appear as examples in this guide. If the user asks for a simple article, landing page, documentation page, or dashboard, build only what directly belongs to that project.
+- **Apply tactile physics only to elements that exist**: If the interface only has buttons and cards, apply mechanical active compression and subtle hover lift to those specific elements. Never fabricate extra controls or components just to showcase an animation technique.
+
+### 2. Full Freedom for SVGs, Icons, and Visual Assets
+- **Inline SVGs and Icons Are Essential**: High-quality vector icons (theme toggles with sun and moon icons, search icons, directional chevrons, close marks, copy buttons) and visual illustrations are strongly encouraged across all interfaces.
+- **Clarification on Jargon vs. Visual Assets**: The anti-slop rule bans dumping technical file extension jargon into user subtitles (e.g. do not write "Attach PNG, JPG, or WEBP visual media"). It **never** bans or discourages using SVGs, vector icons, graphics, canvas visualizers, or rich media. Always use clean, semantic inline SVGs wherever an icon or visual element enhances interface clarity.
+
+---
+
 ## 1. Eliminate Status Affirmations and Proof-of-Work Badges
 
 AI agents have a reflexive habit of adding operational badges and status text to confirm their backend wiring works. Unless the product is an infrastructure uptime dashboard, users assume an interface is working until told otherwise.
@@ -228,7 +241,7 @@ Great software (Apple iOS/macOS, Linear, Stripe, Raycast) does not use neon halo
 
 ### The Tactile, Feedback-Driven Interaction System
 
-Every interaction in the UI must provide physical, kinetic feedback matched to the user's intent:
+When an interface contains interactive elements, apply tactile, physical feedback matched to the user's intent. Treat these patterns as reference recipes to be used **only when the component naturally exists in the design**:
 
 #### 1. Tactile Switch Compression (Active Press and Tap)
 Interactive buttons, chips, and cards must physically compress when clicked or tapped, mimicking the mechanical resistance of a physical switch:
@@ -256,7 +269,7 @@ Instead of glowing with neon colors, interactive cards and modules physically el
 ```
 
 #### 3. Directional Vector Momentum (Chevrons, Links, and Affordances)
-Interactive icons lead the user's eye by shifting slightly along their axis of motion on hover:
+Interactive icons lead the user's eye by shifting slightly along their axis of motion on hover. Always use clean, lightweight inline SVGs for UI iconography:
 - **Forward Action (Arrow / Next)**:
   ```html
   <button class="group flex items-center gap-2">
@@ -274,6 +287,21 @@ Interactive icons lead the user's eye by shifting slightly along their axis of m
 - **Disclosure Chevrons (Spring Rotation)**:
   ```html
   <IconChevron class="transition-transform duration-200 cubic-bezier(0.2, 0.9, 0.3, 1) group-aria-expanded:rotate-180" />
+  ```
+- **Theme Toggle (Sun and Moon Inline SVGs)**:
+  Always prefer crisp inline SVGs for theme and state toggles rather than plain text labels:
+  ```html
+  <button class="tactile-btn p-2" aria-label="Toggle theme">
+    <!-- Sun icon for dark mode -->
+    <svg class="dark:block hidden h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="5"></circle>
+      <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+    </svg>
+    <!-- Moon icon for light mode -->
+    <svg class="dark:hidden block h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+    </svg>
+  </button>
   ```
 
 #### 4. Gliding Spring Indicator (Tabs and Segmented Controls)
@@ -432,15 +460,17 @@ Empty states and error messages should provide calm, actionable guidance instead
 
 ---
 
-## 8. The Universal 8-Point Anti-Slop Audit
+## 8. The Universal 10-Point Anti-Slop Audit
 
-Before shipping any UI component, PR, or template, run this 8-point check:
+Before shipping any UI component, PR, or template, run this 10-point check:
 
 1. **The Affirmation Check**: Did you add any badges saying "Active", "Operational", or "Ready" just to show a feature works? Delete them.
 2. **The Jargon Check**: Does the copy mention "inference", "telemetry", "payload", "pipeline", "ingestion", "database", or "cache"? Translate to everyday human words.
 3. **The Subtitle Check**: Does any title have a descriptive paragraph under it that simply rephrases the title? Delete the subtitle.
 4. **The Extension Dump Check**: Did you add a subhead listing file extensions like "PNG, JPG, WEBP, or GIF" under a simple upload button? Delete it. The label speaks for itself.
-5. **The Neon Glow Check**: Are there any colored box-shadows, drop-shadow halos, or glowing hover outlines? Replace with neutral surface shifts.
-6. **The Motion and Interaction Check**: Is the interaction a dead, generic CSS swap with 0ms cuts or flat linear transitions? Give it physical life: active press compression (`active:scale-[0.96]`), subtle card lift (`hover:-translate-y-0.5`), directional icon nudges, gliding tab indicators, or organic spring curves.
-7. **The Verb Check**: Are button labels longer than two or three words without good reason? Trim to punchy, active verbs ("Save", "Delete", "Export").
-8. **The Dialog Check**: Do confirmation modals read like legal disclaimers? Make them direct and plain ("Delete project? This cannot be undone.").
+5. **The SVG and Icon Check**: Did you skip SVGs or icons out of false fear of complexity? Use crisp, lightweight inline SVGs for theme toggles, search inputs, action buttons, and chevrons.
+6. **The Component Relevance Check**: Did you force unrequested tabs, accordions, toggles, or widgets into the layout just because they exist as examples in this guide? Remove any element that does not directly serve the user's specific request.
+7. **The Neon Glow Check**: Are there any colored box-shadows, drop-shadow halos, or glowing hover outlines? Replace with neutral surface shifts.
+8. **The Motion and Interaction Check**: For elements that naturally belong in the interface, do they have physical life? Use active press compression (`active:scale-[0.96]`), subtle card lift (`hover:-translate-y-0.5`), or organic spring curves where appropriate.
+9. **The Verb Check**: Are button labels longer than two or three words without good reason? Trim to punchy, active verbs ("Save", "Delete", "Export").
+10. **The Dialog Check**: Do confirmation modals read like legal disclaimers? Make them direct and plain ("Delete project? This cannot be undone.").
