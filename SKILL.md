@@ -21,7 +21,7 @@ Other skills handle backend architecture and database schemas. This skill is str
 ### 1. Contextual Recipes, Not Mandatory Component Checklists
 The UI components and text and motion patterns described in this standard are **reference implementations ONLY (DONT FORGET THAT)**.
 - **Never force unrequested UI widgets**: Do not clutter a layout by randomly cramming in tabs, toggles, accordions, or complex controls simply because they appear as examples in this guide. build only what directly belongs to that project that the user is requesting, and if those ui widgets are something that makes sense for the project then go ahead.
-- **Apply tactile physics only to elements that exist**: If the interface only has buttons and cards, apply mechanical active compression and subtle hover lift to those specific elements. Never fabricate extra controls or components just to showcase an animation technique.
+- **Apply tactile physics only to elements that exist**: If the interface only has buttons and cards, apply mechanical active compression and subtle hover lift to those specific elements. Never fabricate extra controls or components just to showcase an animation technique showcased in this guide, only unless they are actually needed.
 
 ### 2. Full Freedom for SVGs, Icons, and Visual Assets
 - **Inline SVGs and Icons Are Essential**: High-quality very soft rounded vector icons and visual illustrations are strongly encouraged across all interfaces ONLY when needed.
