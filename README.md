@@ -18,25 +18,43 @@ This skill acts as an automated review filter and system directive so AI models 
 
 ## Installation
 
-### Google Antigravity
+### Quick Command for AI Agents (Antigravity, Claude Code, Cursor, Codex)
+Give your AI coding assistant this single prompt or run the skills CLI:
+
+```bash
+# Using the open skills CLI
+npx skills add AduriteTBH/no-ai-slop
+```
+
+Or paste this direct instruction into any agent chat:
+> Fetch and follow the UI standard at https://raw.githubusercontent.com/AduriteTBH/no-ai-slop/main/SKILL.md to review and refactor the interface. Remove all affirmation badges, redundant subtitles, and tacky neon hover glows, and apply tactile, feedback-driven motion across all interactions.
+
+---
+
+### Manual Installation
+
+#### Google Antigravity
 Clone or place this repository into your Antigravity skills directory:
 ```bash
 # Workspace level
-git clone https://github.com/your-username/no-ai-slop.git .gemini/skills/no-ai-slop
+git clone https://github.com/AduriteTBH/no-ai-slop.git .gemini/skills/no-ai-slop
 
 # Or global configuration
-git clone https://github.com/your-username/no-ai-slop.git ~/.gemini/config/skills/no-ai-slop
+git clone https://github.com/AduriteTBH/no-ai-slop.git ~/.gemini/config/skills/no-ai-slop
 ```
 
-### Claude Code / Claude App
-Copy the contents of `SKILL.md` directly into your `CLAUDE.md`, project instructions, or custom skill directory:
+#### Claude Code / Claude App
+Fetch the skill directly into your project instructions:
 ```bash
 # In your project root
-cat SKILL.md >> CLAUDE.md
+curl -s https://raw.githubusercontent.com/AduriteTBH/no-ai-slop/main/SKILL.md >> CLAUDE.md
 ```
 
-### OpenAI Codex / Cursor / Windsurf
-Add `SKILL.md` to your `.cursorrules`, `.windsurfrules`, or project system prompts.
+#### OpenAI Codex / Cursor / Windsurf
+Append `SKILL.md` to your `.cursorrules`, `.windsurfrules`, or project instructions:
+```bash
+curl -s https://raw.githubusercontent.com/AduriteTBH/no-ai-slop/main/SKILL.md >> .cursorrules
+```
 
 ---
 
