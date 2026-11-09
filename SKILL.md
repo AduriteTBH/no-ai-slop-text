@@ -19,12 +19,12 @@ Other skills handle backend architecture and database schemas. This skill is str
 ## Core Operational Directives
 
 ### 1. Contextual Recipes, Not Mandatory Component Checklists
-The UI components and motion patterns described in this standard (tabs, sliding pills, toggle switches, collapsible disclosures, skeleton shimmers, modals, popovers) are **reference implementations**.
-- **Never force unrequested UI widgets**: Do not clutter a layout by randomly cramming in tabs, toggles, accordions, or complex controls simply because they appear as examples in this guide. If the user asks for a simple article, landing page, documentation page, or dashboard, build only what directly belongs to that project.
+The UI components and text and motion patterns described in this standard are **reference implementations**.
+- **Never force unrequested UI widgets**: Do not clutter a layout by randomly cramming in tabs, toggles, accordions, or complex controls simply because they appear as examples in this guide. build only what directly belongs to that project that the user is requesting.
 - **Apply tactile physics only to elements that exist**: If the interface only has buttons and cards, apply mechanical active compression and subtle hover lift to those specific elements. Never fabricate extra controls or components just to showcase an animation technique.
 
 ### 2. Full Freedom for SVGs, Icons, and Visual Assets
-- **Inline SVGs and Icons Are Essential**: High-quality vector icons (theme toggles with sun and moon icons, search icons, directional chevrons, close marks, copy buttons) and visual illustrations are strongly encouraged across all interfaces.
+- **Inline SVGs and Icons Are Essential**: High-quality very soft rounded vector icons and visual illustrations are strongly encouraged across all interfaces ONLY when needed.
 - **Clarification on Jargon vs. Visual Assets**: The anti-slop rule bans dumping technical file extension jargon into user subtitles (e.g. do not write "Attach PNG, JPG, or WEBP visual media"). It **never** bans or discourages using SVGs, vector icons, graphics, canvas visualizers, or rich media. Always use clean, semantic inline SVGs wherever an icon or visual element enhances interface clarity.
 
 ---
