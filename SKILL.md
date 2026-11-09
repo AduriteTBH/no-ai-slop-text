@@ -19,7 +19,7 @@ Other skills handle backend architecture and database schemas. This skill is str
 ## Core Operational Directives
 
 ### 1. Contextual Recipes, Not Mandatory Component Checklists
-The UI components and text and motion patterns described in this standard are **reference implementations**.
+The UI components and text and motion patterns described in this standard are **reference implementations ONLY (DONT FORGET THAT)**.
 - **Never force unrequested UI widgets**: Do not clutter a layout by randomly cramming in tabs, toggles, accordions, or complex controls simply because they appear as examples in this guide. build only what directly belongs to that project that the user is requesting.
 - **Apply tactile physics only to elements that exist**: If the interface only has buttons and cards, apply mechanical active compression and subtle hover lift to those specific elements. Never fabricate extra controls or components just to showcase an animation technique.
 
