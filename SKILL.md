@@ -18,14 +18,15 @@ Other skills handle backend architecture and database schemas. This skill is str
 
 ## Core Operational Directives
 
-### 1. Contextual Recipes, Not Mandatory Component Checklists
-The UI components and text and motion patterns described in this standard are **reference implementations ONLY (DONT FORGET THAT)**.
-- **Never force unrequested UI widgets**: Do not clutter a layout by randomly cramming in tabs, toggles, accordions, or complex controls simply because they appear as examples in this guide. build only what directly belongs to that project that the user is requesting, and if those ui widgets are something that makes sense for the project then go ahead.
-- **Apply tactile physics only to elements that exist**: If the interface only has buttons and cards, apply mechanical active compression and subtle hover lift to those specific elements. Never fabricate extra controls or components just to showcase an animation technique showcased in this guide, only unless they are actually needed.
+### 1. Understand the Principle, Never Copy the Example Widgets
+Every UI component shown in this document (such as 3-option theme switchers, segmented tab bars, sliding pill controls, toggle switches, disclosure accordions, or icon buttons) is an **illustrative example only**, not a checklist of widgets to build.
+- **Never inject unrequested UI elements**: Do not add theme switchers, multi-option segmented controls, tab pills, toggles, search bars, or accordions to a site simply because they appear as smooth-animation or copy examples in this guide. Build only the controls the user explicitly asked for or that are strictly required for the app's core functionality.
+- **Extract the behavior, not the widget**: Understand the underlying rule from each example (smooth spring physics instead of 0ms snaps, tactile press compression, short plain-English labels) and apply that behavior strictly to the elements that actually belong in the user's interface.
+- **Apply tactile physics only to existing elements**: If the interface only has buttons and cards, apply mechanical active compression and subtle hover lift to those buttons and cards alone. Never fabricate extra controls just to showcase an animation technique from this guide.
 
 ### 2. Full Freedom for SVGs, Icons, and Visual Assets
-- **Inline SVGs and Icons Are Essential**: High-quality very soft rounded vector icons and visual illustrations are strongly encouraged across all interfaces ONLY when needed.
-- **Clarification on Jargon vs. Visual Assets**: The anti-slop rule bans dumping technical file extension jargon into user subtitles (e.g. do not write "Attach PNG, JPG, or WEBP visual media"). It **never** bans or discourages using SVGs, vector icons, graphics, canvas visualizers, or rich media. Always use clean, semantic inline SVGs wherever an icon or visual element enhances interface clarity.
+- **Inline Super Soft SVGs and Icons When Needed**: Where the interface genuinely calls for icons or visual elements, crisp, very soft rounded inline SVGs and vector illustrations are encouraged.
+- **Clarification on Jargon vs. Visual Assets**: The anti-slop rule bans dumping technical file extension jargon into user subtitles (e.g. do not write "Attach PNG, JPG, or WEBP visual media"). It never bans or discourages using SVGs, vector icons, graphics, canvas visualizers, or rich media when they serve the interface.
 
 ---
 
@@ -114,7 +115,8 @@ The most pervasive AI UI slop is appending an explanatory descriptive sentence u
 Ask: **"Does a regular human already know what this control does from the title alone?"**
 If yes, the subtitle is slop. Delete it immediately.
 
-### Multi-Domain Examples
+### Multi-Domain Copy Examples (Illustrative Only)
+These snippets illustrate how to strip redundant subtitles **if** such sections exist in your interface. Do not copy these example widgets into unrelated layouts.
 
 #### Example A: Settings Sections (Theme, Display, Audio)
 - **AI Slop**:
@@ -241,10 +243,10 @@ Great software (Apple iOS/macOS, Linear, Stripe, Raycast) does not use neon halo
 
 ### The Tactile, Feedback-Driven Interaction System
 
-When an interface contains interactive elements, apply tactile, physical feedback matched to the user's intent. Treat these patterns as reference recipes to be used **only when the component naturally exists in the design**:
+Apply these motion patterns **only to interactive elements that naturally belong in the user's project**. Every widget shown below (theme toggles, segmented tab pills, toggle switches, disclosures) is an illustrative example of *how* to animate that control if the project already needs it. **Understand the spring physics and apply them to your real UI elements; never add example widgets just to showcase these animations.**
 
 #### 1. Tactile Switch Compression (Active Press and Tap)
-Interactive buttons, chips, and cards must physically compress when clicked or tapped, mimicking the mechanical resistance of a physical switch:
+Clickable buttons, chips, and interactive cards should physically compress when clicked or tapped, mimicking the mechanical resistance of a physical switch:
 ```css
 .tactile-btn {
   transition: transform 0.12s cubic-bezier(0.2, 0.9, 0.3, 1), background-color 0.15s ease, color 0.15s ease;
@@ -261,7 +263,7 @@ In Tailwind:
 ```
 
 #### 2. Kinetic Surface Lift (Hover Elevation and Surface Tension)
-Instead of glowing with neon colors, interactive cards and modules physically elevate toward the user on hover with subtle vertical float and tightening elevation shadow:
+When an interface uses clickable cards or modules, elevate them toward the user on hover with subtle vertical float and tightening elevation shadow instead of neon glows:
 ```html
 <div class="rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-xs transition-all duration-200 cubic-bezier(0.16, 1, 0.3, 1) hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700">
   ...
@@ -269,7 +271,7 @@ Instead of glowing with neon colors, interactive cards and modules physically el
 ```
 
 #### 3. Directional Vector Momentum (Chevrons, Links, and Affordances)
-Interactive icons lead the user's eye by shifting slightly along their axis of motion on hover. Always use clean, lightweight inline SVGs for UI iconography:
+Where icons naturally accompany actions or links, let them shift subtly along their axis of motion on hover using lightweight inline SVGs:
 - **Forward Action (Arrow / Next)**:
   ```html
   <button class="group flex items-center gap-2">
@@ -288,8 +290,8 @@ Interactive icons lead the user's eye by shifting slightly along their axis of m
   ```html
   <IconChevron class="transition-transform duration-200 cubic-bezier(0.2, 0.9, 0.3, 1) group-aria-expanded:rotate-180" />
   ```
-- **Theme Toggle (Sun and Moon Inline SVGs)**:
-  Always prefer crisp inline SVGs for theme and state toggles rather than plain text labels:
+- **Theme Toggle (Illustrative Icon Example Only)**:
+  If the project calls for a theme or state toggle, prefer crisp inline SVGs over verbose text labels (do not add a theme toggle unless requested or required by the design):
   ```html
   <button class="tactile-btn p-2" aria-label="Toggle theme">
     <!-- Sun icon for dark mode -->
@@ -305,7 +307,7 @@ Interactive icons lead the user's eye by shifting slightly along their axis of m
   ```
 
 #### 4. Gliding Spring Indicator (Tabs and Segmented Controls)
-Switching tabs, filters, or view modes must never be an instant 0ms color pop. The active background pill glides smoothly under the selected tab with spring momentum:
+If the layout genuinely requires tabs, filters, or a multi-option segmented control (for example, a 2-to-3 option mode switcher), never swap states with an instant 0ms color pop. Animate the active background pill smoothly under the selected option with spring momentum. Only use this pattern when tabs or segmented controls actually belong in the UI:
 ```html
 <!-- Container with relative positioning -->
 <div class="relative flex items-center rounded-xl bg-zinc-100 p-1 dark:bg-zinc-800">
@@ -320,7 +322,7 @@ Switching tabs, filters, or view modes must never be an instant 0ms color pop. T
 ```
 
 #### 5. Elastic Toggle and Switch Roll
-Toggle switches should not snap with a lifeless linear slide. The switch thumb stretches slightly along its motion axis before settling with spring tension:
+If the UI includes toggle switches, avoid lifeless linear slides. Stretch the switch thumb slightly along its motion axis before settling with spring tension:
 ```css
 .switch-thumb {
   transition: transform 0.2s cubic-bezier(0.18, 0.9, 0.28, 1), width 0.15s ease;
@@ -331,7 +333,7 @@ Toggle switches should not snap with a lifeless linear slide. The switch thumb s
 ```
 
 #### 6. Origin-Anchored Spatial Reveals (Menus, Popovers, Modals)
-Menus, popovers, and dropdowns should feel anchored to the trigger that spawned them, expanding slightly from their anchor point:
+If the UI includes menus, popovers, or dropdowns, anchor them to the trigger that spawned them so they expand smoothly from their origin:
 ```css
 @keyframes popover-scale-in {
   from {
@@ -351,7 +353,7 @@ Menus, popovers, and dropdowns should feel anchored to the trigger that spawned 
 ```
 
 #### 7. Micro-Bounce Action Feedback (Completion Snaps)
-When an action succeeds (copying text, bookmarking, marking complete, saving), reward the user with an organic overshoot bounce rather than a static text change:
+When an action completes (copying text, bookmarking, marking complete, saving), reward the user with an organic overshoot bounce rather than a static text swap:
 ```css
 @keyframes micro-bounce {
   0% { transform: scale(0.85); }
@@ -365,7 +367,7 @@ When an action succeeds (copying text, bookmarking, marking complete, saving), r
 ```
 
 #### 8. Organic Luminance Sweep (Skeletons and Loading States)
-Replace harsh flashing neon rings and dizzying spinners with a subtle, directional light sweep across neutral zinc surfaces:
+When loading placeholders are needed, replace harsh flashing neon rings and dizzying spinners with a subtle, directional light sweep across neutral zinc surfaces:
 ```css
 @keyframes shimmer-sweep {
   0% { transform: translateX(-100%); }
@@ -388,7 +390,7 @@ Replace harsh flashing neon rings and dizzying spinners with a subtle, direction
 ```
 
 #### 9. Smooth Height and Disclosure Interpolation
-Collapsible sections, FAQs, and detail disclosures should smoothly interpolate their height and opacity with organic deceleration rather than jump-cutting:
+If the UI includes collapsible sections, FAQs, or detail disclosures, smoothly interpolate their height and opacity with organic deceleration rather than jump-cutting:
 ```css
 .disclosure-content {
   display: grid;
@@ -468,8 +470,8 @@ Before shipping any UI component, PR, or template, run this 10-point check:
 2. **The Jargon Check**: Does the copy mention "inference", "telemetry", "payload", "pipeline", "ingestion", "database", or "cache"? Translate to everyday human words.
 3. **The Subtitle Check**: Does any title have a descriptive paragraph under it that simply rephrases the title? Delete the subtitle.
 4. **The Extension Dump Check**: Did you add a subhead listing file extensions like "PNG, JPG, WEBP, or GIF" under a simple upload button? Delete it. The label speaks for itself.
-5. **The SVG and Icon Check**: Did you skip SVGs or icons out of false fear of complexity? Use crisp, lightweight inline SVGs for theme toggles, search inputs, action buttons, and chevrons.
-6. **The Component Relevance Check**: Did you force unrequested tabs, accordions, toggles, or widgets into the layout just because they exist as examples in this guide? Remove any element that does not directly serve the user's specific request.
+5. **The SVG and Icon Check**: For icons or controls that actually belong in the UI, did you use crisp, lightweight inline SVGs rather than plain text placeholders or emojis? (Never add icon-bearing controls like theme toggles or search bars unless the project needs them.)
+6. **The Component Relevance Check**: Did you inject unrequested UI widgets (such as 3-option theme switchers, segmented tab pills, toggles, search bars, or accordions) simply because they appear as smooth-animation or copy examples in this guide? Remove every widget that does not directly serve the user's request, keeping only the underlying motion and copy principles on real components.
 7. **The Neon Glow Check**: Are there any colored box-shadows, drop-shadow halos, or glowing hover outlines? Replace with neutral surface shifts.
 8. **The Motion and Interaction Check**: For elements that naturally belong in the interface, do they have physical life? Use active press compression (`active:scale-[0.96]`), subtle card lift (`hover:-translate-y-0.5`), or organic spring curves where appropriate.
 9. **The Verb Check**: Are button labels longer than two or three words without good reason? Trim to punchy, active verbs ("Save", "Delete", "Export").
